@@ -1,0 +1,33 @@
+
+<h1> hello </h1>
+<a href="/users/new">Logout</a>
+<% if flash[:notice] %>
+  <% flash[:notice].each do |note| %>
+    <p id="notice"><%= note %></p>  
+  <% end %>
+<% end %>
+<h1>Post a new Message</h1>
+<form action = "/users/<%=@user.id%>/messages" method = "post">
+  <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
+  <input type = 'hidden' name = "message[user_id]" value = "<%=@user.id%>">
+  <label>Messages</label>
+  <input type = "text" name = "message[content]" id = "message_content">
+  <input type = "submit" value = "Post a Message">
+</form>
+
+<% @messages.each do |message| %>
+<h1> <%= message.content %> </h1>
+<h3> <%= message.created_at.strftime("%b %d %Y")%> ---- <%=message.user.username%></h3>
+<form action = "/users/<%=@user.id%>/messages/<%=message.id%>/comments" method = "post">
+  <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
+  <input type = 'hidden' name = "comment[user_id]" value = "<%=@user.id%>">
+  <input type = 'hidden' name = "comment[message_id]" value = "<%=message.id%>">
+  <label>Comments</label>
+  <input type = "text" name = "comment[comment]" id = "comment_content">
+  <input type = "submit" value = "Post a Comment">
+</form>
+	<% @comments.where("message_id = '%s'",message.id).each do |comment| %>
+	<h1> <%= comment.comment %> </h1>
+	<h3> <%= comment.created_at.strftime("%b %d %Y")%> ---- <%=comment.user.username%></h3>
+	<% end %>
+<% end %>

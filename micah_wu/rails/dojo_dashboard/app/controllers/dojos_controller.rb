@@ -4,15 +4,18 @@ class DojosController < ApplicationController
   end
 
   def create
-    unless @dojos.valid?
-      flash
+    dojo = Dojo.create(dojo_params)
+    unless dojo.valid?
+      flash[:notice] = dojo.errors.full_messages
+      redirect_to "/dojos/new"
     else
-      @dojos = Dojo.create( branch: params[:branch], street: params[:street], city: params[:city], state: params[:state])
-      redirect_to '/dojos'
+      redirect_to "/dojos"
+    end
   end
   
   def show
     @dojo = Dojo.find(params[:id])
+    @students = Student.where("dojo_id = #{params[:id]}")
   end
 
   def edit
@@ -20,12 +23,23 @@ class DojosController < ApplicationController
   end
 
   def update
-    @dojo = Dojo.find(params[:id]).update(branch: params[:branch], street: params[:street], city: params[:city], state: params[:state])
-    redirect_to '/dojos'
+    dojo = Dojo.find(params[:id])
+    dojo.update(dojo_params)
+    unless dojo.valid?
+      flash[:notice] = dojo.errors.full_messages
+      redirect_to "/dojos/#{params[:id]}/edit"
+    else
+      redirect_to "/dojos/#{params[:id]}"
+    end
   end
 
   def delete
     Dojo.find(params[:id]).delete
-    redirect_to '/'
+    redirect_to "/"
   end
+
+  private
+    def dojo_params
+      params.require(:dojo).permit(:branch, :street, :city, :state)
+    end
 end

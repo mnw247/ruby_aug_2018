@@ -1,0 +1,52 @@
+<% content_for :left_column do %>
+<h1>All users</h1>
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Favorite Language</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @users.each do |user|%>
+        <tr>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.favorite_language %></td>
+        </tr>
+        <%end%>
+    </tbody>
+</table>
+<%end%>
+
+<% content_for :right_column do %>
+<div class="container">
+<h1>New User</h1>
+<% if flash[:notice] %>
+  <% flash[:notice].each do |message| %>
+    <p class="text-danger"><%= message %></p>
+  <%end%>
+<%end%>
+<form action="/user" method="post">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <div class="form-group">
+    <label for="first_name">first_name: </label>
+    <input name="user[first_name]" type="text" class="form-control" id="first_name" aria-describedby="first_name" placeholder="Enter First Name">
+  </div>
+  <div class="form-group">
+    <label for="last_name">last_name: </label>
+    <input name="user[last_name]" type="text" class="form-control" id="last_name" aria-describedby="first_name" placeholder="Enter Last Name">
+  </div>
+    <div class="form-group">
+    <label for="favorite_language">favorite_language: </label>
+    <input name="user[favorite_language]" type="text" class="form-control" id="favorite_language" aria-describedby="first_name" placeholder="Enter Last Name">
+  </div>
+<button class="btn btn-small btn-primary">Submit</button>  
+
+<a href="/post">
+  <button class="btn btn-small btn-secondary">All Posts</button>
+</a>
+
+</form>
+<% end %>

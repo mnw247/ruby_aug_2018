@@ -21,13 +21,13 @@
       <td><%= dojo.city %></td>
       <td><%= dojo.state %></td>
       <td>
-      <a href="dojos/show/<%= dojo.id %>">
+      <a href="/dojos/<%= dojo.id %>">
         <button class="btn btn-small btn-primary">Show</button>
       </a>
-      <a href="dojos/<%= dojo.id %>/edit">
+      <a href="/dojos/<%= dojo.id %>/edit">
       <button class="btn btn-small btn-success">Edit</button>
       </a>
-      <form action="dojos/delete/<%= dojo.id %>" method="post">
+      <form action="/dojos/delete/<%= dojo.id %>" method="post">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
         <input type="submit" class="btn btn-small btn-danger" value="Delete">
       </form>

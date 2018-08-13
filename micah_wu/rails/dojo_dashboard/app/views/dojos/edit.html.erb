@@ -1,24 +1,29 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <div class="container">
 <h1>Edit Dojo</h1>
-<form action="/dojos/<%= @dojo.id %>/update" method="post">
+<% if flash[:notice] %>
+  <% flash[:notice].each do |message| %>
+    <p class="text-danger"><%= message %></p>
+  <%end%>
+<%end%>
+<form action="/dojos/<%= @dojo.id %>" method="post">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 <input type="hidden" name="_method" value="patch">
   <div class="form-group">
     <label for="branch">Branch: </label>
-    <input name="branch" type="text" class="form-control" id="branch" aria-describedby="branch" value="<%= @dojo.branch %>">
+    <input name="dojo[branch]" type="text" class="form-control" id="branch" aria-describedby="branch" value="<%= @dojo.branch %>">
   </div>
    <div class="form-group">
     <label for="street">Street: </label>
-    <input name="street" type="text" class="form-control" id="street" aria-describedby="street" value="<%= @dojo.street %>">
+    <input name="dojo[street]" type="text" class="form-control" id="street" aria-describedby="street" value="<%= @dojo.street %>">
   </div>
   <div class="form-group">
     <label for="city">City: </label>
-    <input name="city" type="text" class="form-control" id="city" aria-describedby="city" value="<%= @dojo.city %>">
+    <input name="dojo[city]" type="text" class="form-control" id="city" aria-describedby="city" value="<%= @dojo.city %>">
   </div>
   <div class="form-group">
     <label for="state">State: </label>
-    <input name="state" type="text" class="form-control" id="state" aria-describedby="state" value="<%= @dojo.state %>">
+    <input name="dojo[state]" type="text" class="form-control" id="state" aria-describedby="state" value="<%= @dojo.state %>">
   </div>
 <button class="btn btn-small btn-primary">Update</button>  
 </form>
