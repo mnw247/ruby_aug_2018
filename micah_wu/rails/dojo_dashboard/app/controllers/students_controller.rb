@@ -11,9 +11,9 @@ class StudentsController < ApplicationController
     student = Student.create(student_params)
     unless student.valid?
       flash[:notice] = student.errors.full_messages
-      redirect_to "/dojos/new"
+      redirect_to "/dojos/#{params[:dojo_id]}/students/new"
     else
-      redirect_to "/dojos"
+      redirect_to "/dojos/#{params[:dojo_id]}"
     end
   end
 
@@ -23,6 +23,25 @@ class StudentsController < ApplicationController
   end
 
   def edit
+    @dojos = Dojo.where.not(id: params[:dojo_id])
+    @dojo = Dojo.find(params[:dojo_id])
+    @student = Student.find(params[:id])
+  end
+
+  def update
+    student = Student.find(params[:id])
+    student.update(student_params)
+    unless student.valid?
+      flash[:notice] = student.errors.full_messages
+      redirect_to "/dojos/#{params[:dojo_id]}/students/#{params[:id]}/edit"
+    else
+      redirect_to "/dojos/#{params[:dojo_id]}/"
+    end
+  end
+
+  def destroy
+    Student.find(params[:id]).destroy
+    redirect_to "/dojos/#{params[:dojo_id]}"
   end
 
   private

@@ -33,8 +33,8 @@ class DojosController < ApplicationController
     end
   end
 
-  def delete
-    Dojo.find(params[:id]).delete
+  def destroy
+    Dojo.find(params[:id]).destroy
     redirect_to "/"
   end
 

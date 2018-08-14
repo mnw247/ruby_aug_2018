@@ -23,13 +23,15 @@
         </div>
         <div class="form-group">
             <label>Dojo: </label>
-            <select>
-            <input name="student[dojo_id]" type="text" class="form-control" value="<%= @student.dojo_id %>">
-            <input name="student[dojo_id]" type="text" class="form-control" value="<%= @student.dojo_id %>">
+            <select class ="form-control" name="student[dojo_id]">
+                <option class="form-control" value="<%= @dojo.id %>"> <%= @dojo.branch%> </option>
+                <% @dojos.each do |dojo| %>
+                <option class="form-control" value="<%= dojo.id %>"> <%=dojo.branch%> </option>
+                <%end%>
             </select>
         </div>
-    <button class="btn btn-small btn-primary">Update</button>  
+    <button class="btn btn-small btn-primary">Update</button>
 </form>
 <a href="/">Home</a>
-<a href="/dojos/<%= @dojo.id %>/students/<%= @student.id %>/new"><%= @student.first_name %></a>
+<a href="/dojos/<%= @dojo.id %>/students/<%= @student.id %>"><%= @student.first_name %></a>
 </div>
