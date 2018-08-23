@@ -1,0 +1,57 @@
+<div class="container">
+    <h2>Hello, <%= current_user.first_name %>!</h2>
+    <h4>All the songs in our hub:</h4>
+    <table class="table table-striped table-bordered table-sm" id="dtTable1" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th class="th-sm">Artist
+                    <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                </th>
+                <th class="th-sm">Title
+                    <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                </th>
+                <th class="th-sm">No. of Times Song Has Been Added
+                    <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% if @songs %>
+            <% @songs.each do |song| %>
+            <tr>
+                <td><%=song.artist%></td>
+                <td>
+                    <a href="/songs/<%=song.id%>"><%=song.title%></a>
+                </td>
+                <td><%= song.playlists.count %></td>
+                <td>
+                <form class="form-horizontal" action="/songs/<%= song.id %>/add" method="post">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-danger">Add</button>
+                        </div>
+                </form>
+                </td>
+            </tr>
+            <% end %>
+        <% end %>
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <h1>Add a Song:</h1>
+    <form action="/songs" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class="form-group">
+            <label>Artist: </label>
+            <input name="song[artist]" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Title: </label>
+            <input name="song[title]" type="text" class="form-control">
+        </div>
+        <button class="btn btn-small btn-primary">Add Song</button>  
+    </form>
+</div>

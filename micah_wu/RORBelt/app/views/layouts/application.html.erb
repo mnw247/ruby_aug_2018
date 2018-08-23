@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BeltReviewPG</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <style>
+    .scrollbar{
+      height: 200px; 
+      overflow-y: scroll;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <% if flash[:errors] %>
+  <div class="alert alert-danger" role="alert">
+    <% flash[:errors].each do |e| %>
+      <p id="errors"><%= e %></p>
+    <% end %>
+  <% end %>
+</div>
+<div class="container">
+  <% if current_user %>
+    <form action="/sessions" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Log Out">
+    </form>
+  <% end %>
+</div>
+<%= yield %>
+
+</body>
+</html>

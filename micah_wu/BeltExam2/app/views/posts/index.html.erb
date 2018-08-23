@@ -1,0 +1,35 @@
+<div class="container">
+    <h2>Hello, <%= @current_user.first_name %>!</h2>
+
+    <form class="form-inline" action="/posts" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="post[user_id]" value="<%= @current_user.id %>">
+        <div class="form-group">
+            <input class="form-control" name="post[content]" type="text" placeholder="Post something witty here...">
+            <button class="btn btn-small btn-warning">Idea</button>
+        </div>
+    </form>
+</div>
+
+<div class="container">
+    <% if @posts %>
+        <% @posts.each do |post| %>
+        <p><a href="/users/<%= post.user_id %>"><%= post.user.first_name %></a> says:</p>
+        <div class="row">
+            <div class="col-2">
+                <p class="text-success"><%= post.content %></p>
+            </div>
+            <div class="col-4">
+                <form class="form-horizontal" action="/likes" method="post">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <input type="hidden" name="like[user_id]" value="<%= @current_user.id %>">
+                    <input type="hidden" name="like[post_id]" value="<%= post.id %>">
+                    <button type="submit" class="btn btn-primary">Like</button>
+                </form>
+                <button class="btn btn-outline-danger"><a href="/posts/<%= post.id %>" data-method="delete">Delete</a></button>
+                <button><a href="/posts/<%= post.id %>"><%= post.users_that_liked.count %> people liked this</a></button>
+            </div>
+        </div>
+        <%end%>
+    <%end%>
+</div>

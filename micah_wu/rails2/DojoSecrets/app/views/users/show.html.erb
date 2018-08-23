@@ -1,2 +1,60 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% content_for :left_column do %>
+<h1><%=@user.name%></h1>
+<form action="/secrets" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class="form-group">
+            <label>New Secret:</label>
+            <textarea rows="4" cols="50" name="secret[content]" type="text" class="form-control" placeholder="Enter Secrets here..."></textarea>
+            <input type="hidden" name="secret[user_id]" value="<%=session[:user_id]%>">
+        </div>
+    <button class="btn btn-small btn-primary">Create Secret</button>  
+</form>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-sm">
+        <h2> Your Secrets: </h2>
+    <% @secrets.each do |secret| %>
+        <% if current_user == secret.user %>
+        <div class=" well bg-primary text-white d-inline-block" style="width: 80%; vertical-align:top; margin-right: 2%">
+            <%= secret.content%>
+            <p><%= secret.likes.length %> likes</p>
+            <% unless current_user.secrets_liked.include?(secret) %>
+                <form action="/likes/<%= secret.id %>" method="post" class="d-inline-block">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <button type="submit" class="btn btn-dark">Like</button>
+                </form>
+            <% else %>
+                <form action="/likes/<%= secret.id %>" method="post" class="d-inline-block">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    
+                    <input type="hidden" name="_method" value="delete">
+                    <button type="submit" class="btn btn-dark">Unlike</button>
+                </form>
+            <% end %>
+            <% if current_user == secret.user %>
+                <form action="/secrets/<%= secret.id %>" method="post" class="d-inline-block">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <input type="hidden" name="_method" value="delete">
+                    <button type="submit" class="btn btn-dark">Delete</button>
+                </form>
+            <% end %>
+        </div>
+            <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>
+<%end%>
+
+<% content_for :right_column do %>
+<div class="container">
+    <h1>Secrets Liked</h1>
+    <p>LIKED SECRETS</p>
+    <p>LIKED SECRETS</p>
+    <p>LIKED SECRETS</p>
+    <p>LIKED SECRETS</p>
+    <p>LIKED SECRETS</p>
+</div>
+<%end%>
+

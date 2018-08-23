@@ -1,0 +1,16 @@
+  # def update
+  #   song = Song.find(params[:song_id])
+  #   @playlist = Playlist.where(user_id: current_user.id, song_id: params[:song_id])
+  #   if @playlist != nil
+  #     new_playlist_total = @playlist.last.total + 1
+  #     playlist.first.update(total: new_playlist_total)
+  #     new_total = song.total + 1
+  #     song.update(total: new_total)
+  #     redirect_to "/songs"
+  #   else
+  #     Playlist.create(user_id: current_user.id, song_id: params[:song_id], total: 1)
+  #     redirect_to "/songs"
+  #   end
+  # end
+
+

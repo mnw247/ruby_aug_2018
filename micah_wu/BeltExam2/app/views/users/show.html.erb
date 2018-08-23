@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="text-right">
+        <a href="/bright_ideas">Bright Ideas</a>
+    </div>
+
+    <h2 class="text-danger">Name: <%= @user.first_name %></h2>
+    <h2 class="text-danger">Alias: <%= @user.last_name %></h2>
+    <h2 class="text-danger">Email: <%= @user.email %></h2>
+</div>
+
+<div class="container">
+    <h5 class="text-primary">Total Number of Posts: <%= @user.posts.where(user_id:@user.id).count %></h5>
+    <h5 class="text-primary">Total Number of Likes: <%= @total %></h5>
+</div>

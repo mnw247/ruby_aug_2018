@@ -1,2 +1,21 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+<h1>Create User</h1>
+<form action="/users" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class="form-group">
+            <label>New Secret:</label>
+            <textarea rows="4" cols="50" name="user[name]" type="text" class="form-control">Enter Secrets here...</textarea>
+        </div>
+    <button class="btn btn-small btn-primary">Create Secret</button>  
+</form>
+</div>
+<div class="container">
+<h1>Secrets</h1>
+    <% @secrets.each do |secret| %>
+    <h3><%= secret.content %></h3>
+    <h3><%= secret.likes %> likes</h3>
+    <a href="/users/<%= @user.id %>/secrets/<%= @secret.id %>">
+        <button class="btn btn-small btn-primary">Delete Secret</button>
+    </a>
+    <%end%>
+</div>

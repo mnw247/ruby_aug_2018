@@ -1,2 +1,18 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<h1>Dojo Secrets</h1>
+<form action="/sessions/new" method="post">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <div class="form-group">
+    <label for="email">Email: </label>
+    <input name="email" type="text" class="form-control" placeholder="Enter Email">
+  </div>
+  <div class="form-group">
+    <label for="password">Password: </label>
+    <input name="password_confirmation" type="text" class="form-control" placeholder="Enter Password">
+  </div>
+    <% if flash[:notice] %>
+    <% flash[:notice].each do |message| %>
+    <p class="text-danger"><%= message %></p>
+    <%end%>
+    <%end%>
+<button class="btn btn-md btn-primary">Log In</button>  
+</form>
