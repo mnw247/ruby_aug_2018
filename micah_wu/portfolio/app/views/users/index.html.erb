@@ -1,0 +1,260 @@
+<div class="firstbody" id="#start">
+<!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="main">
+        <div class="container-fluid">
+            <%= link_to image_tag('logo4'), href="#start", class:"nav-link" %>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+<!-- Nav Bar Collapse Function -->
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                    <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item active">
+                    <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item active dropdown">
+                    <a class="nav-link active dropdown-toggle" href="#portfolio" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Portfolio
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#carousel-2">Resume</a>
+                        <a class="dropdown-item" href="#carousel-2">Ruby Project</a>
+                    </div>
+                    </li>
+                    <li class="nav-item active">
+                    <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Carousel -->
+    <div id="carousel-1" class="carousel slide container" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-1" data-slide-to="1"></li>
+            <li data-target="#carousel-1" data-slide-to="2"></li>
+            <li data-target="#carousel-1" data-slide-to="3"></li>
+            <li data-target="#carousel-1" data-slide-to="4"></li>
+            <li data-target="#carousel-1" data-slide-to="5"></li>
+        </ul>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col text-center">
+                <div class="carousel-inner">
+                    <div class="carousel-item active ">
+                        <%= image_tag('logo2') %>
+                    </div>
+                    <div class="carousel-item">
+                        <%= image_tag('p1') %>
+                    </div>
+                    <div class="carousel-item ">
+                        <%= image_tag('p2') %>
+                    </div>
+                    <div class="carousel-item">
+                        <%= image_tag('p3') %>
+                    </div>
+                    <div class="carousel-item">
+                        <%= image_tag('p4') %>
+                    </div>
+                    <div class="carousel-item ">
+                        <%= image_tag('logo1') %>
+                    </div>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+        <!-- Carousel Controls -->
+        <a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+<!-- About -->
+<div data-spy="scroll" data-target="#main" data-offset="0">
+    <div class="secondbody" id="about"></div>
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="container col-xs-12 col-sm-6 col-md-4 one_a">
+                <p>I'M</p>
+            </div>
+            <div class="container col-xs-12 col-sm-6 col-md-4 one_a" style="letter-spacing:0.18em;">
+                <p><span>M</span>ICAH <span>W</span>U</p>
+            </div>
+            <div class="container col-xs-12 col-sm-6 col-md-4 one_b">
+                <p>
+                    <span id="python">PYTHON</span>,
+                    <span id="ruby">RUBY</span>&nbsp;&amp; 
+                    <span id="mean">MEAN</span>
+                </p>
+                <p><span style="letter-spacing:0.18em;">FULL STACK</span></p>
+                <p><span style="letter-spacing:0.18em;" id="dev">DEVELOPER</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="jumbotron">
+  <h1 class="text-center">About me</h1>
+  <p>I'm a hard working and determined individual who’s core strength is in data analytics with experience from several industry sectors. I enjoy the challenges of projects that take high level analytical skills to determine, but also the challenge of communicating that information to clients day to day.  I recently graduated from a coding bootcamp (Coding Dojo) and have made a full transition into a new career field in software development.</p>
+</div>
+<!-- Experience & Skills-->
+<div class="thirdbody" id="experience"></div>
+<div class="jumbotron">
+    <h1 class="text-center">Work Experience</h1>
+    <hr class="my-4">
+    <ul>
+        <p class="lead"><span class="font-weight-bold">C-Life (Non-Profit) - Apr ‘16 – Sep '16.</span>
+            <br>Database Administration - Managed Database, Analyst & Reporting, Dashboard Developer, Data Optimization</br>
+            <li>Data Optimization for Donor/Client List</li>
+            <li>Reporting and Analysis of Donations and Donors</li>
+            <li>Researched new platform integration ideas to improve donations and donor activity.</li>
+        </p>
+
+        <p class="lead"><span class="font-weight-bold">Medcore Pharmacy - Apr ‘16 – Apr ‘17</span>
+            <br>Executive Account Manager - Client Management, Database Administrator, Analyst, Power BI Web Developer</br>
+            <li>Managed 10 pharmaceutical client groups (Daily/Weekly/Monthly Reporting and Analysis)</li>
+            <li>Developed brand new Power BI client web portal in 6 months.</li>
+            <li>Created marketing tools for company that helped increase net revenue sales by 200% in 3 months - (1M to 3M NR)</li>
+            <li>Updated and maintained databases to optimize proper load efficiency for reporting and analysis</li>
+            <li>Extensive knowledge of healthcare insurance billing process</li>
+        </p>
+
+        <p class="lead"><span class="font-weight-bold">Lockheed Martin - Jan ‘06 – Dec ‘15</span>
+            <br>Systems Integration Engineer, F-16 Electrical Wiring and Power Systems Group - Designed Logistical Routing to modify military aircraft, Built and Managed Harness-Database,  Procurement - Parts and Vendor Coordinator</br>
+            <li>Created breadboarding database that saved 200 labor-hours on average for each program.</li>
+            <li>Special Service Recognition Awards for Greece, Egypt, Korea, Thailand and Turkey Programs</li>
+            <li>First to test and implement new program protocols that cut task budgets by 40%.</li>
+            <li>Coordinate Customer and Vendor Procurement Requirements for harness assembly</li>
+            <li>Technical Lighting Vendor Coordinator (document, coordinate and approve of vendor specifications)</li>
+        </p>
+    
+        <p class="lead"><span class="font-weight-bold">National Semiconductor - Sep ‘05 – Jan ‘06</span>
+            <br>Fabrication Engineer, Operate & Service Semiconductor Manufacturing Equipment for testing, qualifying and running production</br>
+        </p>
+    </ul>
+    <hr class="my-4">
+    
+    <h1 class="text-center">Skills</h1>
+    <hr class="my-4">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h4 class="cursive">Languages</h4>
+                <ul>
+                    <li>HTML/CSS</li>
+                    <li>JavaScript</li>
+                    <li>Python</li>
+                    <li>Ruby</li>
+                    <li>SQL</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h4 class="cursive">Frameworks</h4>
+                <ul>
+                    <li>Django</li>
+                    <li>Flask</li>
+                    <li>AngularJS</li>
+                    <li>Node.js</li>
+                    <li>Express.js</li>
+                    <li>Bootstrap</li>
+                    <li>Rails</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h4 class="cursive">Databases</h4>
+                <ul>
+                    <li>MySQL</li>
+                    <li>MongoDB</li>
+                    <li>Sqlite</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h4 class="cursive">Web Services</h4>
+                <ul>
+                    <li>AWS</li>
+                    <li>Heroku</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr class="my-4">
+
+    <h1 class="text-center">Education</h1>
+    <hr class="my-4">
+    <p class="lead"><span class="font-weight-bold">University of Texas at Arlington, Arlington, TX</span>
+        <br>Bachelor of Science in Electrical Engineering, May 2004</br>
+    </p>
+    <p>Continued Education</p>
+    <ul>
+        <li>AWS – Certified Developer - Associate (May 2020)</li>
+        <li>Coding Dojo Graduate (3 full stacks: Mean, Ruby, Python)</li>
+        <li>Accounting & Finance 101</li>
+        <li>Options</li>
+        <li>CFA Prep</li>
+    </ul>
+    </p>
+
+    <p class="text-center">
+        <a class="btn btn-primary btn-lg" href="https://drive.google.com/open?id=17Mkp9lkdjM5eanKutdOI2HQlvaNXbL1J" role="button">Learn more</a>
+    </p>
+    <hr class="my-4">
+</div>
+<!-- Experience & Projects Slides -->
+<div id="carousel-2" class="carousel slide" data-ride="carousel">
+    <ul class="carousel-indicators">
+        <li data-target="#carousel-2" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-2" data-slide-to="1"></li>
+    </ul>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <%= image_tag('background') %>
+            <div class="carousel-caption">
+                <h1 class="display-2">Resume</h1>
+                <a href="https://drive.google.com/open?id=17Mkp9lkdjM5eanKutdOI2HQlvaNXbL1J"><button type="button" class="btn btn-primary btn-lg">Click Here</button></a>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <%= image_tag('background4') %>
+            <div class="carousel-caption">
+                <h1 class="display-2">Ruby on Rails Project</h1>
+                <ul class="text-danger text-left font-weight-bold">
+                    <li>Register and Login as a User</li>
+                    <li>Post Comments and add Likes</li>
+                    <li>Deployed on AWS with Postgre SQL and backend validation</li>
+                </ul>
+                <a href="https://micahwu.ddns.net"><button type="button" class="btn btn-danger btn-lg">Learn More</button></a>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carousel-2" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-2" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+<!-- Contact -->
+<div class="fourthbody container-fluid padding" id="contact">
+    <div class="row text-center padding">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <a href="mailto:mnw247@gmail.com?subject=Inquery%20to%20Hire"><%= image_tag('email') %></a>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <a href="https://www.facebook.com/micah.wu"><%= image_tag('facebook') %></a>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <a href="https://www.linkedin.com/in/micah-wu-35161556"><%= image_tag('linked') %></a>
+        </div>
+    </div>
+</div>
