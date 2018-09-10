@@ -1,5 +1,0 @@
-h = {first_name: "Coding", last_name: "Dojo"}
-h.delete(:last_name) => {first_name: "Coding"}
-h.empty? => false
-h.has_key?(first_name) => true
-h.has_value?("Dojo") => false
